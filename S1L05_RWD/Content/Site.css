@@ -17,3 +17,9 @@ body {
     margin-bottom: 60px;
     background-color: var(--light);
 }
+
+@media(max-width: 700px){
+    #myCarousel{
+        display:none;
+    }
+}

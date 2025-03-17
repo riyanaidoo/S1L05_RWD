@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Consultation";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 mx-auto" style="max-width: 700px;">
+       <h1>Book a consultation with your Lecturer.</h1>
+        <br />
+        <h2>Your details</h2>
+
+        <style>
+            .namesurname{
+                display: flex;
+                gap: 60px;
+            }
+
+            .namesurname .firstName{
+                width: 50%;
+            }
+
+            .namesurname .lastName{
+                width: 50%;
+            }
+
+            .commentBar{
+                height: 150px;
+                width: 100%;
+            }
+        </style>
+        <form id="FormConsult">
+            <div class="namesurname">
+                <div class="firstName">
+                    <label for="name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="name" style="display: flex" required />
+                    <div class="invalid-feedback">Please fill in name</div>
+                </div>
+
+                <div class="lastName">
+                    <label for="surname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="surname" required />
+                    <div class="invalid-feedback">Please fill in surname</div>
+                </div>
+            </div>
+
+            <div class="emailAddress">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required/>
+                <div class="invalid-feedback">Please fill in email address</div>
+            </div>
+
+            <div class="commentBar">
+                <label for="comment" class="form-label">Comments</label>
+                <textarea class="form-control" id="comment" rows="5" cols="60"></textarea>
+            </div>
+
+            <br />
+
+            <div id="btnSubmit" class="text-center">
+                <button type="submit" style="background-color: green; border: none; color: white; float: left;" >Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    (function () {
+        'use strict';
+        var form = document.getElementById('FormConsult');
+
+        form.addEventListener('submit', function (event) {
+            if (!form.checkVisibility()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    })();
+</script>
+
+
+
